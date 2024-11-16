@@ -12,7 +12,7 @@ import { useRef } from "react";
 import BookCard from "./book-card";
 import { toast } from "react-toastify";
 
-export function Drawer() {
+export function RecommendationDrawer() {
   const [getBookRecommendation, { isError, isLoading, data }] =
     useGetBookRecommendationMutation();
 
@@ -33,11 +33,11 @@ export function Drawer() {
   };
 
   return (
-    <Sheet className="w-[800px]">
+    <Sheet>
       <SheetTrigger asChild>
-        <Button>Ger Recommendation</Button>
+        <Button>Get Recommendation</Button>
       </SheetTrigger>
-      <SheetContent className="w-[800px]">
+      <SheetContent>
         <SheetHeader>
           <SheetTitle>Recommendation</SheetTitle>
         </SheetHeader>

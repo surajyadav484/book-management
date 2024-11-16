@@ -6,8 +6,9 @@ import useDebounce from "../hooks/useDebounce";
 import Filter from "./Filter";
 import { useGetSelectedFiltersAndSort } from "../hooks/useGetSelectedFiltersAndSort";
 import Sort from "./Sort";
-import { Drawer } from "./components/drawer";
+import { RecommendationDrawer } from "./components/recommendation-drawer";
 import { AddBookModal } from "./components/add-book-modal";
+import FilterDrawer from "./components/filter-drawer";
 
 const Home = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -34,15 +35,18 @@ const Home = () => {
 
   return (
     <div className="flex">
-      <div className="min-w-[20%] border-r-2 p-5">
+      <div className="sm:min-w-[20%] border-r-2 p-5 hidden lg:block">
         <div className="mb-8">
           <Sort />
         </div>
 
         <Filter />
       </div>
+      <div className="lg:hidden">
+        <FilterDrawer />
+      </div>
       <div className="ml-4">
-        <div className="flex justify-between items-center mx-4 my-4">
+        <div className="flex flex-col sm:flex-row justify-between items-center mx-4 my-4 gap-4">
           <div>
             <SearchBar
               searchTerm={searchTerm}
@@ -54,11 +58,11 @@ const Home = () => {
           <div className="flex gap-5">
             <AddBookModal />
 
-            <Drawer />
+            <RecommendationDrawer />
           </div>
         </div>
         <div>
-          <div className="flex justify-start items-center flex-wrap gap-5">
+          <div className="flex justify-center lg:justify-start items-center flex-wrap gap-5">
             {data.map((book) => {
               return <BookCard key={book._id} book={book} />;
             })}
