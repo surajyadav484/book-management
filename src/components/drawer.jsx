@@ -57,7 +57,7 @@ export function Drawer() {
               ? "Loading.."
               : data?.map((details) => (
                   <div key={details?.book?._id} className="max-w-[400px]">
-                    <BookCard book={details?.book} />
+                    <BookCard book={details?.book || details} />
 
                     <p className="mt-3">
                       <span className="font-semibold">Suggestion Reason: </span>
