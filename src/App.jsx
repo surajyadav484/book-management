@@ -10,7 +10,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
         </Routes>
       </BrowserRouter>
-      <ToastContainer position="bottom-right" pauseOnHover />
+      <ToastContainer position="bottom-right" pauseOnHover={true} />
     </>
   );
 }

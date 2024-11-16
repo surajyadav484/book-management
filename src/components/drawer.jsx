@@ -23,7 +23,7 @@ export function Drawer() {
     try {
       const input = inputRef.current.value;
       if (input) {
-        await getBookRecommendation(input).unwrap();
+        await getBookRecommendation({ userQuery: input }).unwrap();
       }
       inputRef.current.value = "";
     } catch (error) {
